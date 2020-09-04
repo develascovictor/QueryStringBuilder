@@ -55,13 +55,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Expressions\Expressions.csproj">
-      <Project>{e0956838-1874-4d14-aa18-44ca77e9a504}</Project>
-      <Name>Expressions</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\Expressions\Expressions.csproj">
+      <Project>{47a7ead8-f482-4454-9706-acf1a6332ab3}</Project>
+      <Name>Expressions</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
