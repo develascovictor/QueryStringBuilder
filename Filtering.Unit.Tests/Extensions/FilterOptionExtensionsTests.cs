@@ -32,25 +32,27 @@ namespace Filtering.Unit.Tests.Extensions
         private const string ExpirationDate = nameof(Opportunity.ExpirationDate);//DateTime?
         private const string Language = nameof(Account.Language);//class
         private const string AccountValue = nameof(Account.AccountValue);//ICollection
+        private static readonly string LanguageName = $"{nameof(Account.Language)}.{nameof(Models.Language.Name)}";//Navigation Property
 
-        private const string Paramater1 = "Red Inc";
-        private const string Paramater2 = "Acme Inc";
-        private const string Paramater3 = "ui";
-        private const string Paramater4 = "ar";
-        private const string Paramater5 = "Tru";
-        private const string Paramater6 = "File Source";
-        private const long Paramater7 = 10;
-        private const bool Paramater8 = true;
-        private const decimal Paramater10 = -7331;
-        private const int Paramater11 = 23;
-        private const short Paramater12 = 1;
+        private const string Parameter1 = "Red Inc";
+        private const string Parameter2 = "Acme Inc";
+        private const string Parameter3 = "ui";
+        private const string Parameter4 = "ar";
+        private const string Parameter5 = "Tru";
+        private const string Parameter6 = "File Source";
+        private const long Parameter7 = 10;
+        private const bool Parameter8 = true;
+        private const decimal Parameter10 = -7331;
+        private const int Parameter11 = 23;
+        private const short Parameter12 = 1;
+        private const string Parameter13 = "en-us";
         private const int Year = 2019;
         private const int Month = 3;
         private const int Day = 20;
 
-        private const string CompanyNameOr = CompanyName + FilterOperators.EqualsOperator + Paramater1 + LogicalOperators.OrOperator + CompanyName + FilterOperators.EqualsOperator + Paramater2;
-        private const string CustomerNameContains = CustomerName + FilterOperators.ContainsOperator + Paramater5;
-        private const string CustomerNameNotContains = CustomerName + FilterOperators.NotContainsOperator + Paramater5;
+        private const string CompanyNameOr = CompanyName + FilterOperators.EqualsOperator + Parameter1 + LogicalOperators.OrOperator + CompanyName + FilterOperators.EqualsOperator + Parameter2;
+        private const string CustomerNameContains = CustomerName + FilterOperators.ContainsOperator + Parameter5;
+        private const string CustomerNameNotContains = CustomerName + FilterOperators.NotContainsOperator + Parameter5;
 
         private const string LambdaInit = "x => ";
         private const string TwelveAm = "12:00:00 AM";
@@ -60,106 +62,106 @@ namespace Filtering.Unit.Tests.Extensions
         #region Private Values
         private static readonly DateTime Date = new DateTime(Year, Month, Day);
 
-        private static readonly string ContactNameOr = $"{ContactName}{FilterOperators.ContainsOperator}{Paramater3}{LogicalOperators.OrOperator}{ContactName}{FilterOperators.ContainsOperator}{Paramater4}";
+        private static readonly string ContactNameOr = $"{ContactName}{FilterOperators.ContainsOperator}{Parameter3}{LogicalOperators.OrOperator}{ContactName}{FilterOperators.ContainsOperator}{Parameter4}";
 
-        private static readonly string ActiveEquals = $"{Active}{FilterOperators.EqualsOperator}{Paramater8}";
+        private static readonly string ActiveEquals = $"{Active}{FilterOperators.EqualsOperator}{Parameter8}";
         private static readonly string ActiveEqualsNull = $"{Active}{FilterOperators.EqualsOperator}";
-        private static readonly string ActiveContains = $"{Active}{FilterOperators.ContainsOperator}{Paramater8}";
-        private static readonly string ActiveNotEqualTo = $"{Active}{FilterOperators.NotEqualToOperator}{Paramater8}";
+        private static readonly string ActiveContains = $"{Active}{FilterOperators.ContainsOperator}{Parameter8}";
+        private static readonly string ActiveNotEqualTo = $"{Active}{FilterOperators.NotEqualToOperator}{Parameter8}";
         private static readonly string ActiveNotEqualToNull = $"{Active}{FilterOperators.NotEqualToOperator}";
-        private static readonly string ActiveNotContains = $"{Active}{FilterOperators.NotContainsOperator}{Paramater8}";
-        private static readonly string ActiveGreaterThan = $"{Active}{FilterOperators.GreaterThanOperator}{Paramater8}";
-        private static readonly string ActiveLessThan = $"{Active}{FilterOperators.LessThanOperator}{Paramater8}";
-        private static readonly string ActiveGreaterThanOrEqualTo = $"{Active}{FilterOperators.GreaterThanOrEqualToOperator}{Paramater8}";
-        private static readonly string ActiveLessThanOrEqualTo = $"{Active}{FilterOperators.LessThanOrEqualToOperator}{Paramater8}";
+        private static readonly string ActiveNotContains = $"{Active}{FilterOperators.NotContainsOperator}{Parameter8}";
+        private static readonly string ActiveGreaterThan = $"{Active}{FilterOperators.GreaterThanOperator}{Parameter8}";
+        private static readonly string ActiveLessThan = $"{Active}{FilterOperators.LessThanOperator}{Parameter8}";
+        private static readonly string ActiveGreaterThanOrEqualTo = $"{Active}{FilterOperators.GreaterThanOrEqualToOperator}{Parameter8}";
+        private static readonly string ActiveLessThanOrEqualTo = $"{Active}{FilterOperators.LessThanOrEqualToOperator}{Parameter8}";
 
-        private static readonly string ApprovedEquals = $"{Approved}{FilterOperators.EqualsOperator}{Paramater8}";
+        private static readonly string ApprovedEquals = $"{Approved}{FilterOperators.EqualsOperator}{Parameter8}";
         private static readonly string ApprovedEqualsNull = $"{Approved}{FilterOperators.EqualsOperator}";
-        private static readonly string ApprovedContains = $"{Approved}{FilterOperators.ContainsOperator}{Paramater8}";
-        private static readonly string ApprovedNotEqualTo = $"{Approved}{FilterOperators.NotEqualToOperator}{Paramater8}";
+        private static readonly string ApprovedContains = $"{Approved}{FilterOperators.ContainsOperator}{Parameter8}";
+        private static readonly string ApprovedNotEqualTo = $"{Approved}{FilterOperators.NotEqualToOperator}{Parameter8}";
         private static readonly string ApprovedNotEqualToNull = $"{Approved}{FilterOperators.NotEqualToOperator}";
-        private static readonly string ApprovedNotContains = $"{Approved}{FilterOperators.NotContainsOperator}{Paramater8}";
-        private static readonly string ApprovedGreaterThan = $"{Approved}{FilterOperators.GreaterThanOperator}{Paramater8}";
-        private static readonly string ApprovedLessThan = $"{Approved}{FilterOperators.LessThanOperator}{Paramater8}";
-        private static readonly string ApprovedGreaterThanOrEqualTo = $"{Approved}{FilterOperators.GreaterThanOrEqualToOperator}{Paramater8}";
-        private static readonly string ApprovedLessThanOrEqualTo = $"{Approved}{FilterOperators.LessThanOrEqualToOperator}{Paramater8}";
+        private static readonly string ApprovedNotContains = $"{Approved}{FilterOperators.NotContainsOperator}{Parameter8}";
+        private static readonly string ApprovedGreaterThan = $"{Approved}{FilterOperators.GreaterThanOperator}{Parameter8}";
+        private static readonly string ApprovedLessThan = $"{Approved}{FilterOperators.LessThanOperator}{Parameter8}";
+        private static readonly string ApprovedGreaterThanOrEqualTo = $"{Approved}{FilterOperators.GreaterThanOrEqualToOperator}{Parameter8}";
+        private static readonly string ApprovedLessThanOrEqualTo = $"{Approved}{FilterOperators.LessThanOrEqualToOperator}{Parameter8}";
 
-        private static readonly string LanguageIdEquals = $"{LanguageId}{FilterOperators.EqualsOperator}{Paramater12}";
+        private static readonly string LanguageIdEquals = $"{LanguageId}{FilterOperators.EqualsOperator}{Parameter12}";
         private static readonly string LanguageIdEqualsNull = $"{LanguageId}{FilterOperators.EqualsOperator}";
-        private static readonly string LanguageIdContains = $"{LanguageId}{FilterOperators.ContainsOperator}{Paramater12}";
-        private static readonly string LanguageIdNotEqualTo = $"{LanguageId}{FilterOperators.NotEqualToOperator}{Paramater12}";
+        private static readonly string LanguageIdContains = $"{LanguageId}{FilterOperators.ContainsOperator}{Parameter12}";
+        private static readonly string LanguageIdNotEqualTo = $"{LanguageId}{FilterOperators.NotEqualToOperator}{Parameter12}";
         private static readonly string LanguageIdNotEqualToNull = $"{LanguageId}{FilterOperators.NotEqualToOperator}";
-        private static readonly string LanguageIdNotContains = $"{LanguageId}{FilterOperators.NotContainsOperator}{Paramater12}";
-        private static readonly string LanguageIdGreaterThan = $"{LanguageId}{FilterOperators.GreaterThanOperator}{Paramater12}";
-        private static readonly string LanguageIdLessThan = $"{LanguageId}{FilterOperators.LessThanOperator}{Paramater12}";
-        private static readonly string LanguageIdGreaterThanOrEqualTo = $"{LanguageId}{FilterOperators.GreaterThanOrEqualToOperator}{Paramater12}";
-        private static readonly string LanguageIdLessThanOrEqualTo = $"{LanguageId}{FilterOperators.LessThanOrEqualToOperator}{Paramater12}";
+        private static readonly string LanguageIdNotContains = $"{LanguageId}{FilterOperators.NotContainsOperator}{Parameter12}";
+        private static readonly string LanguageIdGreaterThan = $"{LanguageId}{FilterOperators.GreaterThanOperator}{Parameter12}";
+        private static readonly string LanguageIdLessThan = $"{LanguageId}{FilterOperators.LessThanOperator}{Parameter12}";
+        private static readonly string LanguageIdGreaterThanOrEqualTo = $"{LanguageId}{FilterOperators.GreaterThanOrEqualToOperator}{Parameter12}";
+        private static readonly string LanguageIdLessThanOrEqualTo = $"{LanguageId}{FilterOperators.LessThanOrEqualToOperator}{Parameter12}";
 
-        private static readonly string ContactLanguageIdEquals = $"{ContactLanguageId}{FilterOperators.EqualsOperator}{Paramater12}";
+        private static readonly string ContactLanguageIdEquals = $"{ContactLanguageId}{FilterOperators.EqualsOperator}{Parameter12}";
         private static readonly string ContactLanguageIdEqualsNull = $"{ContactLanguageId}{FilterOperators.EqualsOperator}";
-        private static readonly string ContactLanguageIdContains = $"{ContactLanguageId}{FilterOperators.ContainsOperator}{Paramater12}";
-        private static readonly string ContactLanguageIdNotEqualTo = $"{ContactLanguageId}{FilterOperators.NotEqualToOperator}{Paramater12}";
+        private static readonly string ContactLanguageIdContains = $"{ContactLanguageId}{FilterOperators.ContainsOperator}{Parameter12}";
+        private static readonly string ContactLanguageIdNotEqualTo = $"{ContactLanguageId}{FilterOperators.NotEqualToOperator}{Parameter12}";
         private static readonly string ContactLanguageIdNotEqualToNull = $"{ContactLanguageId}{FilterOperators.NotEqualToOperator}";
-        private static readonly string ContactLanguageIdNotContains = $"{ContactLanguageId}{FilterOperators.NotContainsOperator}{Paramater12}";
-        private static readonly string ContactLanguageIdGreaterThan = $"{ContactLanguageId}{FilterOperators.GreaterThanOperator}{Paramater12}";
-        private static readonly string ContactLanguageIdLessThan = $"{ContactLanguageId}{FilterOperators.LessThanOperator}{Paramater12}";
-        private static readonly string ContactLanguageIdGreaterThanOrEqualTo = $"{ContactLanguageId}{FilterOperators.GreaterThanOrEqualToOperator}{Paramater12}";
-        private static readonly string ContactLanguageIdLessThanOrEqualTo = $"{ContactLanguageId}{FilterOperators.LessThanOrEqualToOperator}{Paramater12}";
+        private static readonly string ContactLanguageIdNotContains = $"{ContactLanguageId}{FilterOperators.NotContainsOperator}{Parameter12}";
+        private static readonly string ContactLanguageIdGreaterThan = $"{ContactLanguageId}{FilterOperators.GreaterThanOperator}{Parameter12}";
+        private static readonly string ContactLanguageIdLessThan = $"{ContactLanguageId}{FilterOperators.LessThanOperator}{Parameter12}";
+        private static readonly string ContactLanguageIdGreaterThanOrEqualTo = $"{ContactLanguageId}{FilterOperators.GreaterThanOrEqualToOperator}{Parameter12}";
+        private static readonly string ContactLanguageIdLessThanOrEqualTo = $"{ContactLanguageId}{FilterOperators.LessThanOrEqualToOperator}{Parameter12}";
 
-        private static readonly string IdEquals = $"{Id}{FilterOperators.EqualsOperator}{Paramater11}";
+        private static readonly string IdEquals = $"{Id}{FilterOperators.EqualsOperator}{Parameter11}";
         private static readonly string IdEqualsNull = $"{Id}{FilterOperators.EqualsOperator}";
-        private static readonly string IdContains = $"{Id}{FilterOperators.ContainsOperator}{Paramater11}";
-        private static readonly string IdNotEqualTo = $"{Id}{FilterOperators.NotEqualToOperator}{Paramater11}";
+        private static readonly string IdContains = $"{Id}{FilterOperators.ContainsOperator}{Parameter11}";
+        private static readonly string IdNotEqualTo = $"{Id}{FilterOperators.NotEqualToOperator}{Parameter11}";
         private static readonly string IdNotEqualToNull = $"{Id}{FilterOperators.NotEqualToOperator}";
-        private static readonly string IdNotContains = $"{Id}{FilterOperators.NotContainsOperator}{Paramater11}";
-        private static readonly string IdGreaterThan = $"{Id}{FilterOperators.GreaterThanOperator}{Paramater11}";
-        private static readonly string IdLessThan = $"{Id}{FilterOperators.LessThanOperator}{Paramater11}";
-        private static readonly string IdGreaterThanOrEqualTo = $"{Id}{FilterOperators.GreaterThanOrEqualToOperator}{Paramater11}";
-        private static readonly string IdLessThanOrEqualTo = $"{Id}{FilterOperators.LessThanOrEqualToOperator}{Paramater11}";
+        private static readonly string IdNotContains = $"{Id}{FilterOperators.NotContainsOperator}{Parameter11}";
+        private static readonly string IdGreaterThan = $"{Id}{FilterOperators.GreaterThanOperator}{Parameter11}";
+        private static readonly string IdLessThan = $"{Id}{FilterOperators.LessThanOperator}{Parameter11}";
+        private static readonly string IdGreaterThanOrEqualTo = $"{Id}{FilterOperators.GreaterThanOrEqualToOperator}{Parameter11}";
+        private static readonly string IdLessThanOrEqualTo = $"{Id}{FilterOperators.LessThanOrEqualToOperator}{Parameter11}";
 
-        private static readonly string AssignedEmployeeIdEquals = $"{AssignedEmployeeId}{FilterOperators.EqualsOperator}{Paramater11}";
+        private static readonly string AssignedEmployeeIdEquals = $"{AssignedEmployeeId}{FilterOperators.EqualsOperator}{Parameter11}";
         private static readonly string AssignedEmployeeIdEqualsNull = $"{AssignedEmployeeId}{FilterOperators.EqualsOperator}";
-        private static readonly string AssignedEmployeeIdContains = $"{AssignedEmployeeId}{FilterOperators.ContainsOperator}{Paramater11}";
-        private static readonly string AssignedEmployeeIdNotEqualTo = $"{AssignedEmployeeId}{FilterOperators.NotEqualToOperator}{Paramater11}";
+        private static readonly string AssignedEmployeeIdContains = $"{AssignedEmployeeId}{FilterOperators.ContainsOperator}{Parameter11}";
+        private static readonly string AssignedEmployeeIdNotEqualTo = $"{AssignedEmployeeId}{FilterOperators.NotEqualToOperator}{Parameter11}";
         private static readonly string AssignedEmployeeIdNotEqualToNull = $"{AssignedEmployeeId}{FilterOperators.NotEqualToOperator}";
-        private static readonly string AssignedEmployeeIdNotContains = $"{AssignedEmployeeId}{FilterOperators.NotContainsOperator}{Paramater11}";
-        private static readonly string AssignedEmployeeIdGreaterThan = $"{AssignedEmployeeId}{FilterOperators.GreaterThanOperator}{Paramater11}";
-        private static readonly string AssignedEmployeeIdLessThan = $"{AssignedEmployeeId}{FilterOperators.LessThanOperator}{Paramater11}";
-        private static readonly string AssignedEmployeeIdGreaterThanOrEqualTo = $"{AssignedEmployeeId}{FilterOperators.GreaterThanOrEqualToOperator}{Paramater11}";
-        private static readonly string AssignedEmployeeIdLessThanOrEqualTo = $"{AssignedEmployeeId}{FilterOperators.LessThanOrEqualToOperator}{Paramater11}";
+        private static readonly string AssignedEmployeeIdNotContains = $"{AssignedEmployeeId}{FilterOperators.NotContainsOperator}{Parameter11}";
+        private static readonly string AssignedEmployeeIdGreaterThan = $"{AssignedEmployeeId}{FilterOperators.GreaterThanOperator}{Parameter11}";
+        private static readonly string AssignedEmployeeIdLessThan = $"{AssignedEmployeeId}{FilterOperators.LessThanOperator}{Parameter11}";
+        private static readonly string AssignedEmployeeIdGreaterThanOrEqualTo = $"{AssignedEmployeeId}{FilterOperators.GreaterThanOrEqualToOperator}{Parameter11}";
+        private static readonly string AssignedEmployeeIdLessThanOrEqualTo = $"{AssignedEmployeeId}{FilterOperators.LessThanOrEqualToOperator}{Parameter11}";
 
-        private static readonly string ManagerIdEquals = $"{ManagerId}{FilterOperators.EqualsOperator}{Paramater7}";
+        private static readonly string ManagerIdEquals = $"{ManagerId}{FilterOperators.EqualsOperator}{Parameter7}";
         private static readonly string ManagerIdEqualsNull = $"{ManagerId}{FilterOperators.EqualsOperator}";
-        private static readonly string ManagerIdContains = $"{ManagerId}{FilterOperators.ContainsOperator}{Paramater7}";
-        private static readonly string ManagerIdNotEqualTo = $"{ManagerId}{FilterOperators.NotEqualToOperator}{Paramater7}";
+        private static readonly string ManagerIdContains = $"{ManagerId}{FilterOperators.ContainsOperator}{Parameter7}";
+        private static readonly string ManagerIdNotEqualTo = $"{ManagerId}{FilterOperators.NotEqualToOperator}{Parameter7}";
         private static readonly string ManagerIdNotEqualToNull = $"{ManagerId}{FilterOperators.NotEqualToOperator}";
-        private static readonly string ManagerIdNotContains = $"{ManagerId}{FilterOperators.NotContainsOperator}{Paramater7}";
-        private static readonly string ManagerIdGreaterThan = $"{ManagerId}{FilterOperators.GreaterThanOperator}{Paramater7}";
-        private static readonly string ManagerIdLessThan = $"{ManagerId}{FilterOperators.LessThanOperator}{Paramater7}";
-        private static readonly string ManagerIdGreaterThanOrEqualTo = $"{ManagerId}{FilterOperators.GreaterThanOrEqualToOperator}{Paramater7}";
-        private static readonly string ManagerIdLessThanOrEqualTo = $"{ManagerId}{FilterOperators.LessThanOrEqualToOperator}{Paramater7}";
+        private static readonly string ManagerIdNotContains = $"{ManagerId}{FilterOperators.NotContainsOperator}{Parameter7}";
+        private static readonly string ManagerIdGreaterThan = $"{ManagerId}{FilterOperators.GreaterThanOperator}{Parameter7}";
+        private static readonly string ManagerIdLessThan = $"{ManagerId}{FilterOperators.LessThanOperator}{Parameter7}";
+        private static readonly string ManagerIdGreaterThanOrEqualTo = $"{ManagerId}{FilterOperators.GreaterThanOrEqualToOperator}{Parameter7}";
+        private static readonly string ManagerIdLessThanOrEqualTo = $"{ManagerId}{FilterOperators.LessThanOrEqualToOperator}{Parameter7}";
 
-        private static readonly string EmailIdEquals = $"{EmailId}{FilterOperators.EqualsOperator}{Paramater7}";
+        private static readonly string EmailIdEquals = $"{EmailId}{FilterOperators.EqualsOperator}{Parameter7}";
         private static readonly string EmailIdEqualsNull = $"{EmailId}{FilterOperators.EqualsOperator}";
-        private static readonly string EmailIdContains = $"{EmailId}{FilterOperators.ContainsOperator}{Paramater7}";
-        private static readonly string EmailIdNotEqualTo = $"{EmailId}{FilterOperators.NotEqualToOperator}{Paramater7}";
+        private static readonly string EmailIdContains = $"{EmailId}{FilterOperators.ContainsOperator}{Parameter7}";
+        private static readonly string EmailIdNotEqualTo = $"{EmailId}{FilterOperators.NotEqualToOperator}{Parameter7}";
         private static readonly string EmailIdNotEqualToNull = $"{EmailId}{FilterOperators.NotEqualToOperator}";
-        private static readonly string EmailIdNotContains = $"{EmailId}{FilterOperators.NotContainsOperator}{Paramater7}";
-        private static readonly string EmailIdGreaterThan = $"{EmailId}{FilterOperators.GreaterThanOperator}{Paramater7}";
-        private static readonly string EmailIdLessThan = $"{EmailId}{FilterOperators.LessThanOperator}{Paramater7}";
-        private static readonly string EmailIdGreaterThanOrEqualTo = $"{EmailId}{FilterOperators.GreaterThanOrEqualToOperator}{Paramater7}";
-        private static readonly string EmailIdLessThanOrEqualTo = $"{EmailId}{FilterOperators.LessThanOrEqualToOperator}{Paramater7}";
+        private static readonly string EmailIdNotContains = $"{EmailId}{FilterOperators.NotContainsOperator}{Parameter7}";
+        private static readonly string EmailIdGreaterThan = $"{EmailId}{FilterOperators.GreaterThanOperator}{Parameter7}";
+        private static readonly string EmailIdLessThan = $"{EmailId}{FilterOperators.LessThanOperator}{Parameter7}";
+        private static readonly string EmailIdGreaterThanOrEqualTo = $"{EmailId}{FilterOperators.GreaterThanOrEqualToOperator}{Parameter7}";
+        private static readonly string EmailIdLessThanOrEqualTo = $"{EmailId}{FilterOperators.LessThanOrEqualToOperator}{Parameter7}";
 
-        private static readonly string TotalServiceValueEquals = $"{TotalServiceValue}{FilterOperators.EqualsOperator}{Paramater10}";
+        private static readonly string TotalServiceValueEquals = $"{TotalServiceValue}{FilterOperators.EqualsOperator}{Parameter10}";
         private static readonly string TotalServiceValueEqualsNull = $"{TotalServiceValue}{FilterOperators.EqualsOperator}";
-        private static readonly string TotalServiceValueContains = $"{TotalServiceValue}{FilterOperators.ContainsOperator}{Paramater10}";
-        private static readonly string TotalServiceValueNotEqualTo = $"{TotalServiceValue}{FilterOperators.NotEqualToOperator}{Paramater10}";
+        private static readonly string TotalServiceValueContains = $"{TotalServiceValue}{FilterOperators.ContainsOperator}{Parameter10}";
+        private static readonly string TotalServiceValueNotEqualTo = $"{TotalServiceValue}{FilterOperators.NotEqualToOperator}{Parameter10}";
         private static readonly string TotalServiceValueNotEqualToNull = $"{TotalServiceValue}{FilterOperators.NotEqualToOperator}";
-        private static readonly string TotalServiceValueNotContains = $"{TotalServiceValue}{FilterOperators.NotContainsOperator}{Paramater10}";
-        private static readonly string TotalServiceValueGreaterThan = $"{TotalServiceValue}{FilterOperators.GreaterThanOperator}{Paramater10}";
-        private static readonly string TotalServiceValueLessThan = $"{TotalServiceValue}{FilterOperators.LessThanOperator}{Paramater10}";
-        private static readonly string TotalServiceValueGreaterThanOrEqualTo = $"{TotalServiceValue}{FilterOperators.GreaterThanOrEqualToOperator}{Paramater10}";
-        private static readonly string TotalServiceValueLessThanOrEqualTo = $"{TotalServiceValue}{FilterOperators.LessThanOrEqualToOperator}{Paramater10}";
+        private static readonly string TotalServiceValueNotContains = $"{TotalServiceValue}{FilterOperators.NotContainsOperator}{Parameter10}";
+        private static readonly string TotalServiceValueGreaterThan = $"{TotalServiceValue}{FilterOperators.GreaterThanOperator}{Parameter10}";
+        private static readonly string TotalServiceValueLessThan = $"{TotalServiceValue}{FilterOperators.LessThanOperator}{Parameter10}";
+        private static readonly string TotalServiceValueGreaterThanOrEqualTo = $"{TotalServiceValue}{FilterOperators.GreaterThanOrEqualToOperator}{Parameter10}";
+        private static readonly string TotalServiceValueLessThanOrEqualTo = $"{TotalServiceValue}{FilterOperators.LessThanOrEqualToOperator}{Parameter10}";
 
 
         private static readonly string CreatedOnEquals = $"{CreatedOn}{FilterOperators.EqualsOperator}{Date}";
@@ -184,36 +186,40 @@ namespace Filtering.Unit.Tests.Extensions
         private static readonly string ExpirationDateGreaterThanOrEqualTo = $"{ExpirationDate}{FilterOperators.GreaterThanOrEqualToOperator}{Date}";
         private static readonly string ExpirationDateLessThanOrEqualTo = $"{ExpirationDate}{FilterOperators.LessThanOrEqualToOperator}{Date}";
 
-        private static readonly string ExpressionStringApprovedEquals = $"{LambdaInit}(x.{Approved}.HasValue AndAlso (x.{Approved}.Value == {Paramater8}))";
-        private static readonly string ExpressionStringApprovedNotEqualTo = $"{LambdaInit}(x.{Approved}.HasValue AndAlso (x.{Approved}.Value != {Paramater8}))";
+        private static readonly string LanguageNameOnEquals = $"{LanguageName}{FilterOperators.EqualsOperator}{Parameter13}";
+        private static readonly string LanguageNameContains = $"{LanguageName}{FilterOperators.ContainsOperator}{Parameter13}";
+        private static readonly string LanguageNameNotContains = $"{LanguageName}{FilterOperators.NotContainsOperator}{Parameter13}";
 
-        private static readonly string ExpressionStringLanguageIdEquals = $"{LambdaInit}(x.{LanguageId} == {Paramater12})";
-        private static readonly string ExpressionStringLanguageIdNotEqualTo = $"{LambdaInit}(x.{LanguageId} != {Paramater12})";
-        private static readonly string ExpressionStringLanguageIdGreaterThan = $"{LambdaInit}(x.{LanguageId} > {Paramater12})";
-        private static readonly string ExpressionStringLanguageIdLessThan = $"{LambdaInit}(x.{LanguageId} < {Paramater12})";
-        private static readonly string ExpressionStringLanguageIdGreaterThanOrEqualTo = $"{LambdaInit}(x.{LanguageId} >= {Paramater12})";
-        private static readonly string ExpressionStringLanguageIdLessThanOrEqualTo = $"{LambdaInit}(x.{LanguageId} <= {Paramater12})";
+        private static readonly string ExpressionStringApprovedEquals = $"{LambdaInit}(x.{Approved}.HasValue AndAlso (x.{Approved}.Value == {Parameter8}))";
+        private static readonly string ExpressionStringApprovedNotEqualTo = $"{LambdaInit}(x.{Approved}.HasValue AndAlso (x.{Approved}.Value != {Parameter8}))";
 
-        private static readonly string ExpressionStringContactLanguageIdEquals = $"{LambdaInit}(x.{ContactLanguageId}.HasValue AndAlso (x.{ContactLanguageId}.Value == {Paramater12}))";
-        private static readonly string ExpressionStringContactLanguageIdNotEqualTo = $"{LambdaInit}(x.{ContactLanguageId}.HasValue AndAlso (x.{ContactLanguageId}.Value != {Paramater12}))";
-        private static readonly string ExpressionStringContactLanguageIdGreaterThan = $"{LambdaInit}(x.{ContactLanguageId}.HasValue AndAlso (x.{ContactLanguageId}.Value > {Paramater12}))";
-        private static readonly string ExpressionStringContactLanguageIdLessThan = $"{LambdaInit}(x.{ContactLanguageId}.HasValue AndAlso (x.{ContactLanguageId}.Value < {Paramater12}))";
-        private static readonly string ExpressionStringContactLanguageIdGreaterThanOrEqualTo = $"{LambdaInit}(x.{ContactLanguageId}.HasValue AndAlso (x.{ContactLanguageId}.Value >= {Paramater12}))";
-        private static readonly string ExpressionStringContactLanguageIdLessThanOrEqualTo = $"{LambdaInit}(x.{ContactLanguageId}.HasValue AndAlso (x.{ContactLanguageId}.Value <= {Paramater12}))";
+        private static readonly string ExpressionStringLanguageIdEquals = $"{LambdaInit}(x.{LanguageId} == {Parameter12})";
+        private static readonly string ExpressionStringLanguageIdNotEqualTo = $"{LambdaInit}(x.{LanguageId} != {Parameter12})";
+        private static readonly string ExpressionStringLanguageIdGreaterThan = $"{LambdaInit}(x.{LanguageId} > {Parameter12})";
+        private static readonly string ExpressionStringLanguageIdLessThan = $"{LambdaInit}(x.{LanguageId} < {Parameter12})";
+        private static readonly string ExpressionStringLanguageIdGreaterThanOrEqualTo = $"{LambdaInit}(x.{LanguageId} >= {Parameter12})";
+        private static readonly string ExpressionStringLanguageIdLessThanOrEqualTo = $"{LambdaInit}(x.{LanguageId} <= {Parameter12})";
 
-        private static readonly string ExpressionStringAssignedEmployeeIdEquals = $"{LambdaInit}(x.{AssignedEmployeeId}.HasValue AndAlso (x.{AssignedEmployeeId}.Value == {Paramater11}))";
-        private static readonly string ExpressionStringAssignedEmployeeIdNotEqualTo = $"{LambdaInit}(x.{AssignedEmployeeId}.HasValue AndAlso (x.{AssignedEmployeeId}.Value != {Paramater11}))";
-        private static readonly string ExpressionStringAssignedEmployeeIdGreaterThan = $"{LambdaInit}(x.{AssignedEmployeeId}.HasValue AndAlso (x.{AssignedEmployeeId}.Value > {Paramater11}))";
-        private static readonly string ExpressionStringAssignedEmployeeIdLessThan = $"{LambdaInit}(x.{AssignedEmployeeId}.HasValue AndAlso (x.{AssignedEmployeeId}.Value < {Paramater11}))";
-        private static readonly string ExpressionStringAssignedEmployeeIdGreaterThanOrEqualTo = $"{LambdaInit}(x.{AssignedEmployeeId}.HasValue AndAlso (x.{AssignedEmployeeId}.Value >= {Paramater11}))";
-        private static readonly string ExpressionStringAssignedEmployeeIdLessThanOrEqualTo = $"{LambdaInit}(x.{AssignedEmployeeId}.HasValue AndAlso (x.{AssignedEmployeeId}.Value <= {Paramater11}))";
+        private static readonly string ExpressionStringContactLanguageIdEquals = $"{LambdaInit}(x.{ContactLanguageId}.HasValue AndAlso (x.{ContactLanguageId}.Value == {Parameter12}))";
+        private static readonly string ExpressionStringContactLanguageIdNotEqualTo = $"{LambdaInit}(x.{ContactLanguageId}.HasValue AndAlso (x.{ContactLanguageId}.Value != {Parameter12}))";
+        private static readonly string ExpressionStringContactLanguageIdGreaterThan = $"{LambdaInit}(x.{ContactLanguageId}.HasValue AndAlso (x.{ContactLanguageId}.Value > {Parameter12}))";
+        private static readonly string ExpressionStringContactLanguageIdLessThan = $"{LambdaInit}(x.{ContactLanguageId}.HasValue AndAlso (x.{ContactLanguageId}.Value < {Parameter12}))";
+        private static readonly string ExpressionStringContactLanguageIdGreaterThanOrEqualTo = $"{LambdaInit}(x.{ContactLanguageId}.HasValue AndAlso (x.{ContactLanguageId}.Value >= {Parameter12}))";
+        private static readonly string ExpressionStringContactLanguageIdLessThanOrEqualTo = $"{LambdaInit}(x.{ContactLanguageId}.HasValue AndAlso (x.{ContactLanguageId}.Value <= {Parameter12}))";
 
-        private static readonly string ExpressionStringEmailIdEquals = $"{LambdaInit}(x.{EmailId}.HasValue AndAlso (x.{EmailId}.Value == {Paramater7}))";
-        private static readonly string ExpressionStringEmailIdNotEqualTo = $"{LambdaInit}(x.{EmailId}.HasValue AndAlso (x.{EmailId}.Value != {Paramater7}))";
-        private static readonly string ExpressionStringEmailIdGreaterThan = $"{LambdaInit}(x.{EmailId}.HasValue AndAlso (x.{EmailId}.Value > {Paramater7}))";
-        private static readonly string ExpressionStringEmailIdLessThan = $"{LambdaInit}(x.{EmailId}.HasValue AndAlso (x.{EmailId}.Value < {Paramater7}))";
-        private static readonly string ExpressionStringEmailIdGreaterThanOrEqualTo = $"{LambdaInit}(x.{EmailId}.HasValue AndAlso (x.{EmailId}.Value >= {Paramater7}))";
-        private static readonly string ExpressionStringEmailIdLessThanOrEqualTo = $"{LambdaInit}(x.{EmailId}.HasValue AndAlso (x.{EmailId}.Value <= {Paramater7}))";
+        private static readonly string ExpressionStringAssignedEmployeeIdEquals = $"{LambdaInit}(x.{AssignedEmployeeId}.HasValue AndAlso (x.{AssignedEmployeeId}.Value == {Parameter11}))";
+        private static readonly string ExpressionStringAssignedEmployeeIdNotEqualTo = $"{LambdaInit}(x.{AssignedEmployeeId}.HasValue AndAlso (x.{AssignedEmployeeId}.Value != {Parameter11}))";
+        private static readonly string ExpressionStringAssignedEmployeeIdGreaterThan = $"{LambdaInit}(x.{AssignedEmployeeId}.HasValue AndAlso (x.{AssignedEmployeeId}.Value > {Parameter11}))";
+        private static readonly string ExpressionStringAssignedEmployeeIdLessThan = $"{LambdaInit}(x.{AssignedEmployeeId}.HasValue AndAlso (x.{AssignedEmployeeId}.Value < {Parameter11}))";
+        private static readonly string ExpressionStringAssignedEmployeeIdGreaterThanOrEqualTo = $"{LambdaInit}(x.{AssignedEmployeeId}.HasValue AndAlso (x.{AssignedEmployeeId}.Value >= {Parameter11}))";
+        private static readonly string ExpressionStringAssignedEmployeeIdLessThanOrEqualTo = $"{LambdaInit}(x.{AssignedEmployeeId}.HasValue AndAlso (x.{AssignedEmployeeId}.Value <= {Parameter11}))";
+
+        private static readonly string ExpressionStringEmailIdEquals = $"{LambdaInit}(x.{EmailId}.HasValue AndAlso (x.{EmailId}.Value == {Parameter7}))";
+        private static readonly string ExpressionStringEmailIdNotEqualTo = $"{LambdaInit}(x.{EmailId}.HasValue AndAlso (x.{EmailId}.Value != {Parameter7}))";
+        private static readonly string ExpressionStringEmailIdGreaterThan = $"{LambdaInit}(x.{EmailId}.HasValue AndAlso (x.{EmailId}.Value > {Parameter7}))";
+        private static readonly string ExpressionStringEmailIdLessThan = $"{LambdaInit}(x.{EmailId}.HasValue AndAlso (x.{EmailId}.Value < {Parameter7}))";
+        private static readonly string ExpressionStringEmailIdGreaterThanOrEqualTo = $"{LambdaInit}(x.{EmailId}.HasValue AndAlso (x.{EmailId}.Value >= {Parameter7}))";
+        private static readonly string ExpressionStringEmailIdLessThanOrEqualTo = $"{LambdaInit}(x.{EmailId}.HasValue AndAlso (x.{EmailId}.Value <= {Parameter7}))";
 
         private static readonly string ExpressionStringCreatedOnEquals = GetDateExpressionString(Date);
         private static readonly string ExpressionStringCreatedOnNotEqualTo = $"{LambdaInit}((x.{CreatedOn} < {GetDateString(Date)} {TwelveAm}) AndAlso (x.{CreatedOn} >= {GetDateString(Date.AddDays(1))} {TwelveAm}))";
@@ -228,76 +234,80 @@ namespace Filtering.Unit.Tests.Extensions
         private static readonly string ExpressionStringExpirationDateLessThan = $"{LambdaInit}(x.{ExpirationDate}.HasValue AndAlso (x.{ExpirationDate}.Value < {GetDateString(Date)} {TwelveAm}))";
         private static readonly string ExpressionStringExpirationDateGreaterThanOrEqualTo = $"{LambdaInit}(x.{ExpirationDate}.HasValue AndAlso (x.{ExpirationDate}.Value >= {GetDateString(Date)} {TwelveAm}))";
         private static readonly string ExpressionStringExpirationDateLessThanOrEqualTo = $"{LambdaInit}(x.{ExpirationDate}.HasValue AndAlso (x.{ExpirationDate}.Value <= {GetDateString(Date)} {ElevenPm}))";
+
+        private static readonly string ExpressionStringLanguageNameEquals = $"{LambdaInit}((x.{Language} != null) AndAlso ((x.{LanguageName} != null) AndAlso (x.{LanguageName}.Trim().ToLower() == \"{Parameter13}\".Trim().ToLower())))";
+        private static readonly string ExpressionStringLanguageNameContains = $"{LambdaInit}((x.{Language} != null) AndAlso ((x.{LanguageName} != null) AndAlso x.{LanguageName}.Trim().ToLower().Contains(\"{Parameter13}\".Trim().ToLower())))";
+        private static readonly string ExpressionStringLanguageNameNotContains = $"{LambdaInit}((x.{Language} != null) AndAlso ((x.{LanguageName} != null) AndAlso Not(x.{LanguageName}.Trim().ToLower().Contains(\"{Parameter13}\".Trim().ToLower()))))";
         #endregion
 
         #region Expressions
-        private static readonly Expression<Func<Account, bool>> ExpressionCompanyNameOr = x => x.CompanyName != null && x.CompanyName.Trim().ToLower() == Paramater1.Trim().ToLower() || x.CompanyName != null && x.CompanyName.Trim().ToLower() == Paramater2.Trim().ToLower();
-        private static readonly Expression<Func<Account, bool>> ExpressionCompanyNameOrNoTrim = x => x.CompanyName != null && x.CompanyName.ToLower() == Paramater1.ToLower() || x.CompanyName != null && x.CompanyName.ToLower() == Paramater2.ToLower();
-        private static readonly Expression<Func<Account, bool>> ExpressionContactNameOr = x => x.ContactName != null && x.ContactName.Trim().ToLower().Contains(Paramater3.Trim().ToLower()) || x.ContactName != null && x.ContactName.Trim().ToLower().Contains(Paramater4.Trim().ToLower());
-        private static readonly Expression<Func<Account, bool>> ExpressionContactNameOrNoTrim = x => x.ContactName != null && x.ContactName.ToLower().Contains(Paramater3.ToLower()) || x.ContactName != null && x.ContactName.ToLower().Contains(Paramater4.ToLower());
-        private static readonly Expression<Func<Account, bool>> ExpressionCustomerNameContains = x => x.CustomerName != null && x.CustomerName.Trim().ToLower().Contains(Paramater5.Trim().ToLower());
-        private static readonly Expression<Func<Account, bool>> ExpressionCustomerNameContainsNoTrim = x => x.CustomerName != null && x.CustomerName.ToLower().Contains(Paramater5.ToLower());
-        private static readonly Expression<Func<Account, bool>> ExpressionCustomerNameNotContains = x => x.CustomerName != null && !x.CustomerName.Trim().ToLower().Contains(Paramater5.Trim().ToLower());
-        private static readonly Expression<Func<Account, bool>> ExpressionCustomerNameNotContainsNoTrim = x => x.CustomerName != null && !x.CustomerName.ToLower().Contains(Paramater5.ToLower());
+        private static readonly Expression<Func<Account, bool>> ExpressionCompanyNameOr = x => x.CompanyName != null && x.CompanyName.Trim().ToLower() == Parameter1.Trim().ToLower() || x.CompanyName != null && x.CompanyName.Trim().ToLower() == Parameter2.Trim().ToLower();
+        private static readonly Expression<Func<Account, bool>> ExpressionCompanyNameOrNoTrim = x => x.CompanyName != null && x.CompanyName.ToLower() == Parameter1.ToLower() || x.CompanyName != null && x.CompanyName.ToLower() == Parameter2.ToLower();
+        private static readonly Expression<Func<Account, bool>> ExpressionContactNameOr = x => x.ContactName != null && x.ContactName.Trim().ToLower().Contains(Parameter3.Trim().ToLower()) || x.ContactName != null && x.ContactName.Trim().ToLower().Contains(Parameter4.Trim().ToLower());
+        private static readonly Expression<Func<Account, bool>> ExpressionContactNameOrNoTrim = x => x.ContactName != null && x.ContactName.ToLower().Contains(Parameter3.ToLower()) || x.ContactName != null && x.ContactName.ToLower().Contains(Parameter4.ToLower());
+        private static readonly Expression<Func<Account, bool>> ExpressionCustomerNameContains = x => x.CustomerName != null && x.CustomerName.Trim().ToLower().Contains(Parameter5.Trim().ToLower());
+        private static readonly Expression<Func<Account, bool>> ExpressionCustomerNameContainsNoTrim = x => x.CustomerName != null && x.CustomerName.ToLower().Contains(Parameter5.ToLower());
+        private static readonly Expression<Func<Account, bool>> ExpressionCustomerNameNotContains = x => x.CustomerName != null && !x.CustomerName.Trim().ToLower().Contains(Parameter5.Trim().ToLower());
+        private static readonly Expression<Func<Account, bool>> ExpressionCustomerNameNotContainsNoTrim = x => x.CustomerName != null && !x.CustomerName.ToLower().Contains(Parameter5.ToLower());
 
-        private static readonly Expression<Func<Account, bool>> ExpressionActiveEquals = x => x.Active == Paramater8;
-        private static readonly Expression<Func<Account, bool>> ExpressionActiveNotEqualTo = x => x.Active != Paramater8;
-        private static readonly Expression<Func<Opportunity, bool>> ExpressionApprovedEquals = x => x.Approved.HasValue && x.Approved == Paramater8;
+        private static readonly Expression<Func<Account, bool>> ExpressionActiveEquals = x => x.Active == Parameter8;
+        private static readonly Expression<Func<Account, bool>> ExpressionActiveNotEqualTo = x => x.Active != Parameter8;
+        private static readonly Expression<Func<Opportunity, bool>> ExpressionApprovedEquals = x => x.Approved.HasValue && x.Approved == Parameter8;
         private static readonly Expression<Func<Opportunity, bool>> ExpressionApprovedEqualsNull = x => x.Approved == null;
-        private static readonly Expression<Func<Opportunity, bool>> ExpressionApprovedNotEqualTo = x => x.Approved.HasValue && x.Approved != Paramater8;
+        private static readonly Expression<Func<Opportunity, bool>> ExpressionApprovedNotEqualTo = x => x.Approved.HasValue && x.Approved != Parameter8;
         private static readonly Expression<Func<Opportunity, bool>> ExpressionApprovedNotEqualToNull = x => x.Approved != null;
 
-        private static readonly Expression<Func<Account, bool>> ExpressionLanguageIdEquals = x => x.LanguageId == Paramater12;
-        private static readonly Expression<Func<Account, bool>> ExpressionLanguageIdNotEqualTo = x => x.LanguageId != Paramater12;
-        private static readonly Expression<Func<Account, bool>> ExpressionLanguageIdGreaterThan = x => x.LanguageId > Paramater12;
-        private static readonly Expression<Func<Account, bool>> ExpressionLanguageIdLessThan = x => x.LanguageId < Paramater12;
-        private static readonly Expression<Func<Account, bool>> ExpressionLanguageIdGreaterThanOrEqualTo = x => x.LanguageId >= Paramater12;
-        private static readonly Expression<Func<Account, bool>> ExpressionLanguageIdLessThanOrEqualTo = x => x.LanguageId <= Paramater12;
-        private static readonly Expression<Func<Account, bool>> ExpressionContactLanguageIdEquals = x => x.ContactLanguageId.HasValue && x.ContactLanguageId == Paramater12;
+        private static readonly Expression<Func<Account, bool>> ExpressionLanguageIdEquals = x => x.LanguageId == Parameter12;
+        private static readonly Expression<Func<Account, bool>> ExpressionLanguageIdNotEqualTo = x => x.LanguageId != Parameter12;
+        private static readonly Expression<Func<Account, bool>> ExpressionLanguageIdGreaterThan = x => x.LanguageId > Parameter12;
+        private static readonly Expression<Func<Account, bool>> ExpressionLanguageIdLessThan = x => x.LanguageId < Parameter12;
+        private static readonly Expression<Func<Account, bool>> ExpressionLanguageIdGreaterThanOrEqualTo = x => x.LanguageId >= Parameter12;
+        private static readonly Expression<Func<Account, bool>> ExpressionLanguageIdLessThanOrEqualTo = x => x.LanguageId <= Parameter12;
+        private static readonly Expression<Func<Account, bool>> ExpressionContactLanguageIdEquals = x => x.ContactLanguageId.HasValue && x.ContactLanguageId == Parameter12;
         private static readonly Expression<Func<Account, bool>> ExpressionContactLanguageIdEqualsNull = x => x.ContactLanguageId == null;
-        private static readonly Expression<Func<Account, bool>> ExpressionContactLanguageIdNotEqualTo = x => x.ContactLanguageId.HasValue && x.ContactLanguageId != Paramater12;
+        private static readonly Expression<Func<Account, bool>> ExpressionContactLanguageIdNotEqualTo = x => x.ContactLanguageId.HasValue && x.ContactLanguageId != Parameter12;
         private static readonly Expression<Func<Account, bool>> ExpressionContactLanguageIdNotEqualToNull = x => x.ContactLanguageId != null;
-        private static readonly Expression<Func<Account, bool>> ExpressionContactLanguageIdGreaterThan = x => x.ContactLanguageId.HasValue && x.ContactLanguageId > Paramater12;
-        private static readonly Expression<Func<Account, bool>> ExpressionContactLanguageIdLessThan = x => x.ContactLanguageId.HasValue && x.ContactLanguageId < Paramater12;
-        private static readonly Expression<Func<Account, bool>> ExpressionContactLanguageIdGreaterThanOrEqualTo = x => x.ContactLanguageId.HasValue && x.ContactLanguageId >= Paramater12;
-        private static readonly Expression<Func<Account, bool>> ExpressionContactLanguageIdLessThanOrEqualTo = x => x.ContactLanguageId.HasValue && x.ContactLanguageId <= Paramater12;
+        private static readonly Expression<Func<Account, bool>> ExpressionContactLanguageIdGreaterThan = x => x.ContactLanguageId.HasValue && x.ContactLanguageId > Parameter12;
+        private static readonly Expression<Func<Account, bool>> ExpressionContactLanguageIdLessThan = x => x.ContactLanguageId.HasValue && x.ContactLanguageId < Parameter12;
+        private static readonly Expression<Func<Account, bool>> ExpressionContactLanguageIdGreaterThanOrEqualTo = x => x.ContactLanguageId.HasValue && x.ContactLanguageId >= Parameter12;
+        private static readonly Expression<Func<Account, bool>> ExpressionContactLanguageIdLessThanOrEqualTo = x => x.ContactLanguageId.HasValue && x.ContactLanguageId <= Parameter12;
 
-        private static readonly Expression<Func<AccountValue, bool>> ExpressionIdEquals = x => x.Id == Paramater11;
-        private static readonly Expression<Func<AccountValue, bool>> ExpressionIdNotEqualTo = x => x.Id != Paramater11;
-        private static readonly Expression<Func<AccountValue, bool>> ExpressionIdGreaterThan = x => x.Id > Paramater11;
-        private static readonly Expression<Func<AccountValue, bool>> ExpressionIdLessThan = x => x.Id < Paramater11;
-        private static readonly Expression<Func<AccountValue, bool>> ExpressionIdGreaterThanOrEqualTo = x => x.Id >= Paramater11;
-        private static readonly Expression<Func<AccountValue, bool>> ExpressionIdLessThanOrEqualTo = x => x.Id <= Paramater11;
-        private static readonly Expression<Func<Opportunity, bool>> ExpressionAssignedEmployeeIdEquals = x => x.AssignedEmployeeId.HasValue && x.AssignedEmployeeId == Paramater11;
+        private static readonly Expression<Func<AccountValue, bool>> ExpressionIdEquals = x => x.Id == Parameter11;
+        private static readonly Expression<Func<AccountValue, bool>> ExpressionIdNotEqualTo = x => x.Id != Parameter11;
+        private static readonly Expression<Func<AccountValue, bool>> ExpressionIdGreaterThan = x => x.Id > Parameter11;
+        private static readonly Expression<Func<AccountValue, bool>> ExpressionIdLessThan = x => x.Id < Parameter11;
+        private static readonly Expression<Func<AccountValue, bool>> ExpressionIdGreaterThanOrEqualTo = x => x.Id >= Parameter11;
+        private static readonly Expression<Func<AccountValue, bool>> ExpressionIdLessThanOrEqualTo = x => x.Id <= Parameter11;
+        private static readonly Expression<Func<Opportunity, bool>> ExpressionAssignedEmployeeIdEquals = x => x.AssignedEmployeeId.HasValue && x.AssignedEmployeeId == Parameter11;
         private static readonly Expression<Func<Opportunity, bool>> ExpressionAssignedEmployeeIdEqualsNull = x => x.AssignedEmployeeId == null;
-        private static readonly Expression<Func<Opportunity, bool>> ExpressionAssignedEmployeeIdNotEqualTo = x => x.AssignedEmployeeId.HasValue && x.AssignedEmployeeId != Paramater11;
+        private static readonly Expression<Func<Opportunity, bool>> ExpressionAssignedEmployeeIdNotEqualTo = x => x.AssignedEmployeeId.HasValue && x.AssignedEmployeeId != Parameter11;
         private static readonly Expression<Func<Opportunity, bool>> ExpressionAssignedEmployeeIdNotEqualToNull = x => x.AssignedEmployeeId != null;
-        private static readonly Expression<Func<Opportunity, bool>> ExpressionAssignedEmployeeIdGreaterThan = x => x.AssignedEmployeeId.HasValue && x.AssignedEmployeeId > Paramater11;
-        private static readonly Expression<Func<Opportunity, bool>> ExpressionAssignedEmployeeIdLessThan = x => x.AssignedEmployeeId.HasValue && x.AssignedEmployeeId < Paramater11;
-        private static readonly Expression<Func<Opportunity, bool>> ExpressionAssignedEmployeeIdGreaterThanOrEqualTo = x => x.AssignedEmployeeId.HasValue && x.AssignedEmployeeId >= Paramater11;
-        private static readonly Expression<Func<Opportunity, bool>> ExpressionAssignedEmployeeIdLessThanOrEqualTo = x => x.AssignedEmployeeId.HasValue && x.AssignedEmployeeId <= Paramater11;
+        private static readonly Expression<Func<Opportunity, bool>> ExpressionAssignedEmployeeIdGreaterThan = x => x.AssignedEmployeeId.HasValue && x.AssignedEmployeeId > Parameter11;
+        private static readonly Expression<Func<Opportunity, bool>> ExpressionAssignedEmployeeIdLessThan = x => x.AssignedEmployeeId.HasValue && x.AssignedEmployeeId < Parameter11;
+        private static readonly Expression<Func<Opportunity, bool>> ExpressionAssignedEmployeeIdGreaterThanOrEqualTo = x => x.AssignedEmployeeId.HasValue && x.AssignedEmployeeId >= Parameter11;
+        private static readonly Expression<Func<Opportunity, bool>> ExpressionAssignedEmployeeIdLessThanOrEqualTo = x => x.AssignedEmployeeId.HasValue && x.AssignedEmployeeId <= Parameter11;
 
-        private static readonly Expression<Func<Opportunity, bool>> ExpressionManagerIdEquals = x => x.ManagerId == Paramater7;
-        private static readonly Expression<Func<Opportunity, bool>> ExpressionManagerIdNotEqualTo = x => x.ManagerId != Paramater7;
-        private static readonly Expression<Func<Opportunity, bool>> ExpressionManagerIdGreaterThan = x => x.ManagerId > Paramater7;
-        private static readonly Expression<Func<Opportunity, bool>> ExpressionManagerIdLessThan = x => x.ManagerId < Paramater7;
-        private static readonly Expression<Func<Opportunity, bool>> ExpressionManagerIdGreaterThanOrEqualTo = x => x.ManagerId >= Paramater7;
-        private static readonly Expression<Func<Opportunity, bool>> ExpressionManagerIdLessThanOrEqualTo = x => x.ManagerId <= Paramater7;
-        private static readonly Expression<Func<Opportunity, bool>> ExpressionEmailIdEquals = x => x.EmailId.HasValue && x.EmailId != Paramater7;
+        private static readonly Expression<Func<Opportunity, bool>> ExpressionManagerIdEquals = x => x.ManagerId == Parameter7;
+        private static readonly Expression<Func<Opportunity, bool>> ExpressionManagerIdNotEqualTo = x => x.ManagerId != Parameter7;
+        private static readonly Expression<Func<Opportunity, bool>> ExpressionManagerIdGreaterThan = x => x.ManagerId > Parameter7;
+        private static readonly Expression<Func<Opportunity, bool>> ExpressionManagerIdLessThan = x => x.ManagerId < Parameter7;
+        private static readonly Expression<Func<Opportunity, bool>> ExpressionManagerIdGreaterThanOrEqualTo = x => x.ManagerId >= Parameter7;
+        private static readonly Expression<Func<Opportunity, bool>> ExpressionManagerIdLessThanOrEqualTo = x => x.ManagerId <= Parameter7;
+        private static readonly Expression<Func<Opportunity, bool>> ExpressionEmailIdEquals = x => x.EmailId.HasValue && x.EmailId != Parameter7;
         private static readonly Expression<Func<Opportunity, bool>> ExpressionEmailIdEqualsNull = x => x.EmailId == null;
-        private static readonly Expression<Func<Opportunity, bool>> ExpressionEmailIdNotEqualTo = x => x.EmailId.HasValue && x.EmailId != Paramater7;
+        private static readonly Expression<Func<Opportunity, bool>> ExpressionEmailIdNotEqualTo = x => x.EmailId.HasValue && x.EmailId != Parameter7;
         private static readonly Expression<Func<Opportunity, bool>> ExpressionEmailIdNotEqualToNull = x => x.EmailId != null;
-        private static readonly Expression<Func<Opportunity, bool>> ExpressionEmailIdGreaterThan = x => x.EmailId.HasValue && x.EmailId > Paramater7;
-        private static readonly Expression<Func<Opportunity, bool>> ExpressionEmailIdLessThan = x => x.EmailId.HasValue && x.EmailId < Paramater7;
-        private static readonly Expression<Func<Opportunity, bool>> ExpressionEmailIdGreaterThanOrEqualTo = x => x.EmailId.HasValue && x.EmailId >= Paramater7;
-        private static readonly Expression<Func<Opportunity, bool>> ExpressionEmailIdLessThanOrEqualTo = x => x.EmailId.HasValue && x.EmailId <= Paramater7;
+        private static readonly Expression<Func<Opportunity, bool>> ExpressionEmailIdGreaterThan = x => x.EmailId.HasValue && x.EmailId > Parameter7;
+        private static readonly Expression<Func<Opportunity, bool>> ExpressionEmailIdLessThan = x => x.EmailId.HasValue && x.EmailId < Parameter7;
+        private static readonly Expression<Func<Opportunity, bool>> ExpressionEmailIdGreaterThanOrEqualTo = x => x.EmailId.HasValue && x.EmailId >= Parameter7;
+        private static readonly Expression<Func<Opportunity, bool>> ExpressionEmailIdLessThanOrEqualTo = x => x.EmailId.HasValue && x.EmailId <= Parameter7;
 
-        private static readonly Expression<Func<Account, bool>> ExpressionTotalServiceValueEquals = x => x.TotalServiceValue == Paramater10;
-        private static readonly Expression<Func<Account, bool>> ExpressionTotalServiceValueNotEqualTo = x => x.TotalServiceValue != Paramater10;
-        private static readonly Expression<Func<Account, bool>> ExpressionTotalServiceValueGreaterThan = x => x.TotalServiceValue > Paramater10;
-        private static readonly Expression<Func<Account, bool>> ExpressionTotalServiceValueLessThan = x => x.TotalServiceValue < Paramater10;
-        private static readonly Expression<Func<Account, bool>> ExpressionTotalServiceValueGreaterThanOrEqualTo = x => x.TotalServiceValue >= Paramater10;
-        private static readonly Expression<Func<Account, bool>> ExpressionTotalServiceValueLessThanOrEqualTo = x => x.TotalServiceValue <= Paramater10;
+        private static readonly Expression<Func<Account, bool>> ExpressionTotalServiceValueEquals = x => x.TotalServiceValue == Parameter10;
+        private static readonly Expression<Func<Account, bool>> ExpressionTotalServiceValueNotEqualTo = x => x.TotalServiceValue != Parameter10;
+        private static readonly Expression<Func<Account, bool>> ExpressionTotalServiceValueGreaterThan = x => x.TotalServiceValue > Parameter10;
+        private static readonly Expression<Func<Account, bool>> ExpressionTotalServiceValueLessThan = x => x.TotalServiceValue < Parameter10;
+        private static readonly Expression<Func<Account, bool>> ExpressionTotalServiceValueGreaterThanOrEqualTo = x => x.TotalServiceValue >= Parameter10;
+        private static readonly Expression<Func<Account, bool>> ExpressionTotalServiceValueLessThanOrEqualTo = x => x.TotalServiceValue <= Parameter10;
 
         private static readonly Expression<Func<Account, bool>> ExpressionCreatedOnEquals = x => x.CreatedOn >= new DateTime(Year, Month, Day) && x.CreatedOn <= new DateTime(Year, Month, Day).AddDays(1).AddMilliseconds(-1);
         private static readonly Expression<Func<Account, bool>> ExpressionCreatedOnNotEqualTo = x => x.CreatedOn < new DateTime(Year, Month, Day) && x.CreatedOn >= new DateTime(Year, Month, Day).AddDays(1);
@@ -313,6 +323,10 @@ namespace Filtering.Unit.Tests.Extensions
         private static readonly Expression<Func<Opportunity, bool>> ExpressionExpirationDateLessThan = x => x.ExpirationDate.HasValue && x.ExpirationDate < new DateTime(Year, Month, Day);
         private static readonly Expression<Func<Opportunity, bool>> ExpressionExpirationDateGreaterThanOrEqualTo = x => x.ExpirationDate.HasValue && x.ExpirationDate >= new DateTime(Year, Month, Day);
         private static readonly Expression<Func<Opportunity, bool>> ExpressionExpirationDateLessThanOrEqualTo = x => x.ExpirationDate.HasValue && x.ExpirationDate <= new DateTime(Year, Month, Day);
+
+        private static readonly Expression<Func<Account, bool>> ExpressionLanguageNameEquals = x => x.Language != null && x.Language.Name != null && x.Language.Name.Trim().ToLower() == Parameter13.Trim().ToLower();
+        private static readonly Expression<Func<Account, bool>> ExpressionLanguageNameContains = x => x.Language != null && x.Language.Name != null && x.Language.Name.Trim().ToLower().Contains(Parameter13.Trim().ToLower());
+        private static readonly Expression<Func<Account, bool>> ExpressionLanguageNameNotContains = x => x.Language != null && x.Language.Name != null && !x.Language.Name.Trim().ToLower().Contains(Parameter13.Trim().ToLower());
         #endregion
 
         [TestCaseSource(nameof(TestCasesGetFilterExpressionEquals))]
@@ -605,6 +619,13 @@ namespace Filtering.Unit.Tests.Extensions
                 ExpectedExpression = ExpressionExpirationDateOnEquals,
                 ExpectedExpressionString = ExpressionStringExpirationDateEquals
             };
+            yield return new Tester<Account>
+            {
+                Filters = LanguageNameOnEquals,
+                DisableTrim = false,
+                ExpectedExpression = ExpressionLanguageNameEquals,
+                ExpectedExpressionString = ExpressionStringLanguageNameEquals
+            };
         }
 
         public static IEnumerable<ITester> TestCasesGetFilterExpressionEqualsNull()
@@ -700,6 +721,13 @@ namespace Filtering.Unit.Tests.Extensions
                 DisableTrim = true,
                 ExpectedExpression = ExpressionCustomerNameContainsNoTrim,
                 ExpectedExpressionString = null
+            };
+            yield return new Tester<Account>
+            {
+                Filters = LanguageNameContains,
+                DisableTrim = false,
+                ExpectedExpression = ExpressionLanguageNameContains,
+                ExpectedExpressionString = ExpressionStringLanguageNameContains
             };
         }
 
@@ -965,6 +993,13 @@ namespace Filtering.Unit.Tests.Extensions
                 DisableTrim = true,
                 ExpectedExpression = ExpressionCustomerNameNotContainsNoTrim,
                 ExpectedExpressionString = null
+            };
+            yield return new Tester<Account>
+            {
+                Filters = LanguageNameNotContains,
+                DisableTrim = false,
+                ExpectedExpression = ExpressionLanguageNameNotContains,
+                ExpectedExpressionString = ExpressionStringLanguageNameNotContains
             };
         }
 
