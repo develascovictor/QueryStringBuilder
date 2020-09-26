@@ -168,10 +168,6 @@
       <Project>{aac827c0-6457-47a6-8789-2343c74cd4bd}</Project>
       <Name>Filtering</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Utilities\Utilities.csproj">
-      <Project>{60fea9af-7112-41c0-bd3f-77f709ec960a}</Project>
-      <Name>Utilities</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

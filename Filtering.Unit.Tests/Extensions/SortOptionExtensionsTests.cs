@@ -6,7 +6,6 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Utilities.Extensions;
 
 namespace Filtering.Unit.Tests.Extensions
 {
